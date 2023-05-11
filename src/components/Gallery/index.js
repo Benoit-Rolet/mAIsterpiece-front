@@ -67,8 +67,8 @@ function Gallery() {
         {
           pictures.map((picture) => (
             <div className="gallery__imgContainer" key={picture.id}>
-              <img className="gallery__img" src={picture.src.medium} alt="" />
-              {/* <img className="gallery__img" src={picture.url} alt="" /> */}
+              {/* <img className="gallery__img" src={picture.src.medium} alt="" /> */}
+              <img className="gallery__img" src={picture.url} alt="" />
               <div className="gallery__imgDatas">
                 <div className="gallery__author">
                   <User />
