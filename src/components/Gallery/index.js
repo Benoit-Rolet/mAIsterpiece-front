@@ -29,6 +29,8 @@ function Gallery() {
     // dispatch(actionUpdateSortingHomepagePictures(event.currentTarget.id));
     // dispatch(actionLoadPicturesFiltered(event.currentTarget.id));
   };
+  // console.log(pictures);
+  // console.log('Tableau vide ? ', pictures.length);
   return (
     <div className="gallery__container">
       <div className="gallery__title">
@@ -69,20 +71,24 @@ function Gallery() {
       <div className="gallery__content">
         {
           pictures.map((picture) => (
-            <Link className="gallery__imgContainer" key={picture.id} to={`/picture/${picture.id}`}>
-              <img className="gallery__img" src={picture.src.medium} alt="" />
-              {/* <img className="gallery__img" src={picture.url} alt="" /> */}
+            <Link to={`/picture/${picture[0].id}`} className="gallery__imgContainer" key={picture[0].id}>
+              {/* <img className="gallery__img" src={picture.src.medium} alt="" /> */}
+              <img className="gallery__img" src={picture[0].url} alt="" />
               <div className="gallery__imgDatas">
                 <div className="gallery__author">
-                  <User />
-                  <p>Martin Martin</p>
+                  {/* <User /> */}
+                  <div className="gallery_avatar">
+                    <img src={picture.user_avatar} alt="avatar" />
+                  </div>
+                  {/* <p>Martin Martin</p> */}
+                  <p>{picture.user_pseudo}</p>
                 </div>
                 <div className="gallery__imgLikesAndComments">
                   <div className="gallery__imgLikes">
-                    167 &nbsp; <Heart />
+                    {picture.nombre_like} &nbsp; <Heart />
                   </div>
                   <div className="gallery__imgComments">
-                    12 &nbsp; <MessageSquare />
+                    {picture.nombre_review} &nbsp; <MessageSquare />
                   </div>
                 </div>
               </div>

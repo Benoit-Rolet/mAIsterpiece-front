@@ -8,7 +8,9 @@ import {
 } from '../actions/pictures';
 
 const initialState = {
-  listHomePage: [],
+  listHomePage: [{
+    0: {},
+  }],
   isLoading: false,
   pictureOfTheWeek: {
     src: {
