@@ -71,12 +71,12 @@ function App() {
   // }
 
   // Function that allows you to invert the state associated with the onClick for displaying the burger menu
-  const toggleMenu = () => {
+  const toggleMenu2 = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div onClick={isOpen ? toggleMenu : null} className="app">
+    <div onClick={isOpen ? toggleMenu2 : null} className="app">
       <AppHeader isOpen={isOpen} setIsOpen={setIsOpen} />
       {/* {showAppHeaderMin()} */}
       {/* {
@@ -86,7 +86,7 @@ function App() {
         })
       } */}
       {
-        showScrollHeader && <AppHeaderMin />
+        showScrollHeader && <AppHeaderMin isOpen={isOpen} setIsOpen={setIsOpen} />
       }
       <Routes>
         <Route path="/" element=<HomePage /> />

@@ -1,0 +1,65 @@
+.alertModal{
+  background-color: white;
+  height: 294px;
+  width: 300px;
+  border-radius: 5px;
+  border: 2px solid orange;
+  position: absolute;  
+  top: 50%; left: 50%; 
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-around;
+
+  @media (width < 480px) {
+    width: 17.5rem;
+    margin: 0 auto;
+  }
+
+  input{
+    margin: 0.3rem;
+    padding: 0.4rem;
+    width: 80%;
+    margin-top: 1rem;
+    border-radius: 5px;
+    border: 2px solid orange;
+
+  }
+
+  textarea{
+    margin: 0.3rem;
+    padding: 0.4rem;
+    width: 80%;
+    margin-top: 1rem;
+    border-radius: 5px;
+    border: 2px solid orange;
+    max-height: 54px;
+    max-width: 290px;
+    min-width: 180px;
+    min-height: 54px;
+  }
+  button{
+    border-radius: 5px;
+    background-color: white;
+    border: 2px solid orange;
+    width: 6rem;
+    margin-top: 0.5rem;
+  }
+
+  .closeButton{
+    border: none;
+  }
+
+  .previousPage{
+    width: 100%;
+  }
+
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+}
+

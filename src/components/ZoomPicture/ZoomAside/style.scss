@@ -3,6 +3,7 @@
   width: 80%;
   @media (width > 480px) {
     width: 25%;
+    width: 257px;
   }
   display: flex;
   flex-direction: column;
@@ -41,11 +42,14 @@
   width: auto;
   margin: 0.5rem;
   background-color: white;
+ 
 }
 
 .zoomPicture__containerButtonAlert{
   width: 100%;
   text-align: center;
+  position: relative;
+  
 
   p {
     font-weight: bold;
@@ -64,4 +68,5 @@
     padding-top: 0.5rem;
     padding-right: 0.5rem;
   }
+
 }

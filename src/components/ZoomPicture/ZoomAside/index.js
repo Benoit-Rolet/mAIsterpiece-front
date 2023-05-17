@@ -3,9 +3,16 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 // import React-feather
+import { useState } from 'react';
 import { AlertTriangle, Heart, MessageSquare, User } from 'react-feather';
+import AlertModal from '../../AlertModal';
 
 function ZoomAside({ author, ia }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const toggleMenu = () => {
+    setIsVisible(!isVisible);
+  };
+
   return (
     <div className="zoomPicture__zoomAside">
       <div className="zoomPicture__zoomInfo">
@@ -30,7 +37,8 @@ function ZoomAside({ author, ia }) {
       </div>
       <div className="zoomPicture__containerButtonAlert">
         <p>Signaler</p>
-        <button className="zoomPicture__reportButton" type="button"><AlertTriangle /> </button>
+        <button onClick={toggleMenu} className="zoomPicture__reportButton" type="button"><AlertTriangle /> </button>
+        {isVisible && <AlertModal isVisible={isVisible} setIsVisible={setIsVisible} className="alertModal" />}
       </div>
     </div>
   );

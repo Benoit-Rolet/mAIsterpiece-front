@@ -33,7 +33,6 @@ function NavBar({ isOpen, setIsOpen }) {
 NavBar.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   setIsOpen: PropTypes.func.isRequired,
-
 };
 
 export default NavBar;

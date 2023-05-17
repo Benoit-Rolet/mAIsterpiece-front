@@ -60,6 +60,10 @@
  }
 
  .navBar__container__mobile{
+   @media (width > 480px) {
+     display: none;
+   }
+   
   position: absolute;
   right: 0px;
   top: 0px;
@@ -81,12 +85,6 @@
     padding: 0.2rem;
   }
 
-  }
-  @media (width > 480px) {
-    display: none;
-  }
+}
  }
- 
- 
- 
  

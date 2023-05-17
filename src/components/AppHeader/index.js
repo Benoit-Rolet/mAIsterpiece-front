@@ -65,6 +65,7 @@ function AppHeader({ isOpen, setIsOpen }) {
 AppHeader.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   setIsOpen: PropTypes.func.isRequired,
+
 };
 
 export default AppHeader;

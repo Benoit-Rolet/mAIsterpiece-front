@@ -15,6 +15,7 @@ import PictureReviews from './PictureReviews';
 import ZoomAside from './ZoomAside';
 import './style.scss';
 import PreviousPage from '../PreviousPage';
+import AlertModal from '../AlertModal';
 
 
 function ZoomPicture() {

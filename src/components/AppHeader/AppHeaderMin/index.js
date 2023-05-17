@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import './style.scss';
 // import { Link } from 'react-feather';
@@ -7,7 +7,7 @@ import Logo from '../../../assets/proposition_logo.png';
 import NavBar from '../NavBar';
 import { actionUpdateSearchBar } from '../../../actions/pictures';
 
-function AppHeaderMin() {
+function AppHeaderMin({ isOpen, setIsOpen }) {
   const inputSearchBar = useSelector((state) => state.pictures.inputSearchBar);
 
   const dispatch = useDispatch();
@@ -15,7 +15,9 @@ function AppHeaderMin() {
   const handleChangeInputSearchBar = (event) => {
     dispatch(actionUpdateSearchBar(event.target.value));
   };
+
   return (
+
     <div
       className="appHeaderMin"
       style={{
@@ -47,13 +49,15 @@ function AppHeaderMin() {
         </form>
       </div>
 
-      <NavBar />
+      <NavBar isOpen={isOpen} setIsOpen={setIsOpen} />
 
     </div>
   );
 }
 
 AppHeaderMin.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
 
 };
 
