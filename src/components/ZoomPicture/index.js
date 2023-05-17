@@ -19,15 +19,20 @@ import AlertModal from '../AlertModal';
 
 
 function ZoomPicture() {
+  // console.log('PAGE ZOOM');
   const logged = useSelector((state) => state.user.logged);
 
   // Retrieves the picture's id
   const { id } = useParams();
+  // console.log(id, typeof id);
   // Retrieves the datas of this picture
   let picture = useSelector((state) => {
     return state.pictures.listHomePage.find((testedPicture) => {
       // "==" instead of "===" because there is a space after testedPicture.id
-      return testedPicture.id == id;
+      if (testedPicture.id) {
+        return testedPicture.id == id;
+      }
+      return testedPicture[0].id == id;
     });
   });
   // console.log(picture);
@@ -59,16 +64,18 @@ function ZoomPicture() {
         <PreviousPage />
       </div>
       <ContainerPicture
-        imgSrc={!picture.src ? picture.url : picture.src.large}
-        imgPrompt="a good picture of myself"
+        imgSrc={!picture.src ? picture[0].url : picture.src.large}
+        imgPrompt={!picture[0].prompt ? 'a good picture of myself' : picture[0].prompt}
       />
       <div className="zoomPicture__reviewsAndAside">
         <div className="zoomPicture__reviewsContainer">
           <PictureReviews />
         </div>
         <ZoomAside
-          author={!picture.photographer ? '' : picture.photographer}
-          ia="MidJourney"
+          author={!picture.photographer ? picture.user_pseudo : picture.photographer}
+          ia={!picture[0].ia.name ? 'MidJourney' : picture[0].ia.name}
+          numberLikes={!picture.nombre_like ? '0' : picture.nombre_like}
+          numberReviews={!picture.nombre_review ? '0' : picture.nombre_review}
         />
       </div>
       <MoreReviewsButton />

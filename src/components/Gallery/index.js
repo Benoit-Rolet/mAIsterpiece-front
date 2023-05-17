@@ -18,6 +18,7 @@ function Gallery() {
   // list of images
   const pictures = useSelector((state) => state.pictures.listHomePage);
   console.log(pictures);
+
   // id for sorting images
   const sortIdFromState = useSelector((state) => state.pictures.sortHomePageId);
   // extracts the choosen sort
@@ -71,7 +72,8 @@ function Gallery() {
       <div className="gallery__content">
         {
           pictures.map((picture) => (
-            <Link to={`/picture/${picture[0].id}`} className="gallery__imgContainer" key={picture[0].id}>
+            <Link to={`/picture/26`} className="gallery__imgContainer" key={picture[0].id} data-test={picture[0].id}>
+            {/* <Link to={`/picture/${picture[0].id}`} className="gallery__imgContainer" key={picture[0].id} data-test={picture[0].id}> */}
               {/* <img className="gallery__img" src={picture.src.medium} alt="" /> */}
               <img className="gallery__img" src={picture[0].url} alt="" />
               <div className="gallery__imgDatas">

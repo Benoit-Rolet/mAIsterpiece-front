@@ -55,10 +55,10 @@ function Carousel() {
         >
           {
             pictures.map((picture) => (
-              <SwiperSlide key={picture.id}>
-                <Link to={`/picture/${picture.id}`}>
+              <SwiperSlide key={picture[0].id}>
+                <Link to={`/picture/${picture[0].id}`}>
                   <img
-                    src={picture.src.large}
+                    src={picture[0].url}
                     alt=""
                   />
                 </Link>
