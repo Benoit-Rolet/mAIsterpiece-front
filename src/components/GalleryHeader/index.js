@@ -6,7 +6,7 @@ function GalleryHeader() {
   return (
     <div className="gallery__header">
       <p className="gallery__textHeader">Bienvenue sur A.I. Masterpiece ! Ici, vous pourrez apprécier
-        et télécharger vos images générées par IA
+        et téléverser vos images générées par IA
       </p>
       <button type="button" className="gallery__registerButton">s'inscrire</button>
     </div>

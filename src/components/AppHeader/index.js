@@ -43,7 +43,7 @@ function AppHeader({ isOpen, setIsOpen }) {
       </div>
       <div className="appHeader__searchBar">
         <p className="appHeader__textAboveSearchBar">Bienvenue sur mAIsterpiece ! Ici, vous pourrez apprécier
-          et télécharger vos images générées par IA
+          et téléverser vos images générées par IA
         </p>
         <form>
           <input
