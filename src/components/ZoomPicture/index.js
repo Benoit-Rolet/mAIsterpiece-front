@@ -86,6 +86,7 @@ function ZoomPicture() {
           views={(picture !== null) ? picture.nbClick : null}
           likes={(picture !== null) ? picture.nombre_like : 0}
           reviews={(picture !== null) ? picture.nombre_review : 0}
+          id={picture ? picture.id : null}
         />
       </div>
       <MoreReviewsButton />

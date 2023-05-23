@@ -6,12 +6,37 @@ import './style.scss';
 // import React-feather
 import { useState } from 'react';
 import { AlertTriangle, Heart, MessageSquare, User } from 'react-feather';
+import { useDispatch, useSelector } from 'react-redux';
 import AlertModal from '../../AlertModal';
 
-function ZoomAside({ author, avatar, ia, iaLink, likes, reviews, views }) {
+import { actionToggleLikeAPI } from '../../../actions/pictures';
+
+function ZoomAside({ id, author, avatar, ia, iaLink, likes, reviews, views }) {
   const [isVisible, setIsVisible] = useState(false);
   const toggleMenu = () => {
     setIsVisible(!isVisible);
+  };
+  const dispatch = useDispatch();
+  // TODO fonction d'initialisation du like si on est connecté
+  const [like, setLike] = useState(false);
+  const [nbLikes, setNbLikes] = useState(likes);
+  // check in the state if the user is logged
+  const isLogged = useSelector((state) => state.user.logged);
+
+  const handleToggleLike = (event) => {
+    event.preventDefault();
+    setLike(!like);
+    if (!like) {
+      setNbLikes(nbLikes + 1);
+      // console.log('nombre de like + = ', nbLikes);
+    }
+    else {
+      setNbLikes(nbLikes - 1);
+      // console.log('nombre de like - = ', nbLikes);
+    }
+    // toggle like via API
+    // console.log(id);
+    dispatch(actionToggleLikeAPI(id));
   };
 
   return (
@@ -32,9 +57,9 @@ function ZoomAside({ author, avatar, ia, iaLink, likes, reviews, views }) {
         <p className="zoomPicture__zoomTitleAside">Vues</p>
         <p className="zoomPicture__zoomContentAside">{views}</p>
       </div>
-      <div className="zoomPicture__zoomInfo">
-        <Heart className="zoomPicture__zoomTitleAside zoomPicture__liked" />
-        <p className="zoomPicture__zoomContentAside">{likes}</p>
+      <div className="zoomPicture__zoomInfo" onClick={isLogged ? handleToggleLike : null}>
+        <Heart className={like ? 'zoomPicture__liked zoomPicture__zoomTitleAside' : 'zoomPicture__zoomTitleAside'} />
+        <p className="zoomPicture__zoomContentAside">{nbLikes}</p>
       </div>
       <div className="zoomPicture__zoomInfo">
         <MessageSquare className="zoomPicture__zoomTitleAside" />
