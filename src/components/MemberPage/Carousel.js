@@ -65,7 +65,8 @@ function Carousel() {
           className="memberPage__SwiperContainer"
         >
           {
-            pictures.map((picture) => (
+            pictures[0].picture_id !== null
+            && pictures.map((picture) => (
               <SwiperSlide key={picture.picture_id}>
                 <Link to={`/picture/${picture.picture_id}`}>
                   <img

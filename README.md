@@ -8,8 +8,13 @@
 ```
 yarn
 ```
+3. Modify the file src/utils/url.example.js into url.js
+```
+mv url.example.js url.js
+```
+and, in this file, write down your server domain, without the final '/'
 ### DEVELOPMENT
-3. Start the server with yarn
+4. Start the server with yarn
 ```
 yarn start
 ```
@@ -17,15 +22,15 @@ and go to http://localhost:8080/
 
 
 ### PRODUCTION
-3. Build the project
+4. Build the project
 ```
 yarn build
 ```
-4. Go to the "dist" directory
+5. Go to the "dist" directory
 ```
 cd dist
 ```
-5. Export all the directories and files from "dist" to your production server
+6. Export all the directories and files from "dist" to your production server
 
 Enjoy !
 
@@ -37,8 +42,13 @@ Enjoy !
 ```
 yarn
 ```
+3. Transformer le fichier src/utils/url.example.js en url.js
+```
+mv url.example.js url.js
+```
+et dans ce fichier, remplacer 'http://your-domain.com' par le nom de domaine de votre serveur, sans le '/' final.
 ### DEVELOPPEMENT
-3. Démarrer le serveur avec yarn
+4. Démarrer le serveur avec yarn
 ```
 yarn start
 ```
@@ -46,15 +56,15 @@ et rendez-vous sur http://localhost:8080/
 
 
 ### PRODUCTION
-3. Compiler le projet
+4. Compiler le projet
 ```
 yarn build
 ```
-4. Aller sur le répertoire "dist"
+5. Aller sur le répertoire "dist"
 ```
 cd dist
 ```
-5. Exporter tous les fichiers et dossiers présents de ce répertoire vers votre serveur de production 
+6. Exporter tous les fichiers et dossiers présents de ce répertoire vers votre serveur de production 
 
 Amusez-vous !
 
