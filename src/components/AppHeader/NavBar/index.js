@@ -57,7 +57,7 @@ function NavBar({ isOpen, setIsOpen }) {
         : (
           <div className="navBar__container__desktop">
             <Link to="" onClick={toggleMenu}>
-              {avatarSrc === '' ? <User className="logo_user" /> : <img src={avatarSrc} alt="" className="logo_user" />
+              {(avatarSrc === '' || avatarSrc === null) ? <User className="logo_user" /> : <img src={avatarSrc} alt="" className="logo_user" />
               }
             </Link>
             <ul onClick={toggleMenu} className={`${isOpen ? '' : 'navBar__li--close'}`}>
