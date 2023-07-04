@@ -1,5 +1,5 @@
 .contact {
-  height: 100vh;
+  height: 83vh;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -7,8 +7,8 @@
   background-color: #F5EDED;
   align-items: center;
 
-  @media (width <= 480px) {
-    height: 83vh;
+  @media (width > 480px) {
+    height: 100vh;
   }
 
   &__logoAndTitle {
@@ -20,20 +20,16 @@
   }
 
   & a{
-    width: 50%;
+    width: 90%;
     border: 3px solid orange;
     padding:2rem 0rem;
     
+    @media (width > 480px) {
+      width: 50%;
+    }
+    
     &:hover {
     background-color:orange ;
-    }
-
-    @media (width < 880px) {
-      width: 70%;
-    }
-
-    @media (width <= 480px) {
-      width: 90%;
     }
 
     p {
@@ -41,7 +37,6 @@
       font-weight: bold;
       padding-top: 0.5rem;
     }
-
   }
 
   &__logoImg {

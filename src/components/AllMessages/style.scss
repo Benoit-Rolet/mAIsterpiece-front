@@ -7,6 +7,9 @@ $error-color: #FF4F0D;
 $error-dark-color: color.scale($error-color, $lightness: -70%);
 $error-border-color: color.scale($error-color, $lightness: -30%);
 
+.allMessages__isNotVisible {
+  display: none;
+}
 
 .allMessages__container {
   position: fixed;
