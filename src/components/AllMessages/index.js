@@ -8,8 +8,10 @@ import './style.scss';
 
 function AllMessages() {
   const messages = useSelector((state) => state.messages.listMessages);
+  // console.log(messages);
   return (
-    <div className="allMessages__container">
+    // <div className="allMessages__container">
+    <div className={`${(messages.length === 0) ? 'allMessages__isNotVisible' : 'allMessages__container'}`}>
       {
         messages.map((message) => (
           <SingleMessage messageId={message.id} messageType={message.type} messageContent={message.content} key={message.id} />
