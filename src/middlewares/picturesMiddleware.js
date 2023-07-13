@@ -27,12 +27,9 @@ import { URL_SERVER_BACK } from '../utils/url';
 const picturesMiddleware = (store) => (next) => async (action) => {
   switch (action.type) {
     case LOAD_PICTURES: {
-      // const { jwt } = store.getState().user;
       const jwt = sessionStorage.getItem('jwtMaisterpiece');
-      // console.log('picturesMiddleware executé', action);
       try {
         const sortId = action.payload;
-        // console.log(sortId);
         let adressAPI = `${URL_SERVER_BACK}/api/pictures`;
         switch (sortId) {
           case 'picturesMostRecents':
@@ -59,7 +56,7 @@ const picturesMiddleware = (store) => (next) => async (action) => {
             },
           },
         );
-        // console.log(result);
+        // action for the reducer "pictures"
         store.dispatch(actionUpdatePicturesHomePage(result.data, sortId));
       }
       catch (e) {
@@ -72,6 +69,7 @@ const picturesMiddleware = (store) => (next) => async (action) => {
 
     case LOAD_PICTURE_OF_THE_WEEK: {
       try {
+        // load the JWT
         const jwt = sessionStorage.getItem('jwtMaisterpiece');
         // request
         const result = await axios.get(
@@ -82,7 +80,6 @@ const picturesMiddleware = (store) => (next) => async (action) => {
             },
           },
         );
-        // console.log('Image de la semaine : ', result);
         // store the datas of the picture of the week
         store.dispatch(actionUpdatePictureOfTheWeek(result.data));
       }

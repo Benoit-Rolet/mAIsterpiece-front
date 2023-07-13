@@ -79,20 +79,13 @@ function App() {
   // }
 
   // Function that allows you to invert the state associated with the onClick for displaying the burger menu
-  const toggleMenu2 = () => {
+  const toggleMenuMain = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div onClick={isOpen ? toggleMenu2 : null} className="app">
+    <div onClick={isOpen ? toggleMenuMain : null} className="app">
       <AppHeader isOpen={isOpen} setIsOpen={setIsOpen} />
-      {/* {showAppHeaderMin()} */}
-      {/* {
-        window.addEventListener('scroll', () => {
-          (window.scrollY >= AppHeaderHeight)
-            && <AppHeaderMin />
-        })
-      } */}
       {
         showScrollHeader && <AppHeaderMin isOpen={isOpen} setIsOpen={setIsOpen} />
       }
