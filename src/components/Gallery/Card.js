@@ -1,24 +1,32 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { actionToggleLikeAPI, actionUpdateNbLike } from '../../actions/pictures';
+import { Heart, MessageSquare, User } from 'react-feather';
+import { Link } from 'react-router-dom';
+import { actionToggleLikeAPI } from '../../actions/pictures';
 
 import { URL_SERVER_BACK } from '../../utils/url';
 
 import './style.scss';
-import { Heart, MessageSquare, User } from 'react-feather';
-import { Link } from 'react-router-dom';
 
-// function Card({ id, url, userId, userPseudo, userAvatar, nombreLike, nombreReview }) {
-function Card({ id, url, isLiked, userId, userPseudo, userAvatar, nombreLike, nombreReview }) {
+function Card({
+  id,
+  url,
+  isLiked,
+  userId,
+  userPseudo,
+  userAvatar,
+  nombreLike,
+  nombreReview,
+}) {
   const dispatch = useDispatch();
-  // console.log(isLiked);
-  // initialisation du like si on est connecté
+  // Initialize the "Like" of the picture
   const [like, setLike] = useState(isLiked);
   const [nbLikes, setNbLikes] = useState(parseInt(nombreLike, 10));
   // check in the state if the user is logged
   const isLogged = useSelector((state) => state.user.logged);
 
+  // On click on the Heart, toggle the state of the like, and adjust the shown total of likes
   const handleToggleLike = (event) => {
     event.preventDefault();
     setLike(!like);
@@ -33,6 +41,7 @@ function Card({ id, url, isLiked, userId, userPseudo, userAvatar, nombreLike, no
   };
 
   const prefix = `${URL_SERVER_BACK}/uploads/images/`;
+  // const urlCompleted = prefix + url;
   let urlCompleted = url;
   // console.log(urlCompleted.substring(0, 3));
   if (urlCompleted.substring(0, 4) !== 'http') {
@@ -45,11 +54,9 @@ function Card({ id, url, isLiked, userId, userPseudo, userAvatar, nombreLike, no
       <div className="gallery__imgDatas">
         <div className="gallery__author">
           {userAvatar === '' ? <User /> : <img src={userAvatar} alt="" className="gallery__avatarPicture" />}
-          {/* <p>{userPseudo}</p> */}
           <Link to={`/membre/${userId}`}>{userPseudo}</Link>
         </div>
         <div className="gallery__imgLikesAndComments">
-          {/* <div className="gallery__imgLikes"> */}
           <div className="gallery__imgLikes" onClick={isLogged ? handleToggleLike : null}>
             {nbLikes} &nbsp; <Heart className={like ? 'heartFilled' : ''} />
           </div>
@@ -63,7 +70,14 @@ function Card({ id, url, isLiked, userId, userPseudo, userAvatar, nombreLike, no
 }
 
 Card.propTypes = {
-
+  id: PropTypes.number.isRequired,
+  url: PropTypes.string.isRequired,
+  isLiked: PropTypes.bool.isRequired,
+  userId: PropTypes.number.isRequired,
+  userPseudo: PropTypes.string.isRequired,
+  userAvatar: PropTypes.string.isRequired,
+  nombreLike: PropTypes.number.isRequired,
+  nombreReview: PropTypes.number.isRequired,
 };
 
 export default Card;

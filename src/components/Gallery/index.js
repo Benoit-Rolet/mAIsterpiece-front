@@ -1,27 +1,19 @@
-// import PropTypes from 'prop-types';
 // imports from react-redux and react-router-dom
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 // actions
 import {
-  LOAD_PICTURES_FILTERED,
   actionLoadPictures,
-  actionLoadPicturesFiltered,
-  actionUpdateSortingHomepagePictures,
 } from '../../actions/pictures';
-// Compoenents
+// Components
 import Card from './Card';
 // import list of sorts
 import data from '../../utils/data';
 // style and figures
 import './style.scss';
-import { Heart, MessageSquare, User } from 'react-feather';
-
-
 
 function Gallery() {
-  // console.log('Chargement Gallery');
   // sets the dispatch function
   const dispatch = useDispatch();
   useEffect(
@@ -44,8 +36,6 @@ function Gallery() {
   const handleChangeSort = (event) => {
     event.preventDefault();
     dispatch(actionLoadPictures(event.currentTarget.id));
-    // dispatch(actionUpdateSortingHomepagePictures(event.currentTarget.id));
-    // dispatch(actionLoadPicturesFiltered(event.currentTarget.id));
   };
   return (
     <div className="gallery__container">
@@ -71,17 +61,7 @@ function Gallery() {
                   </a>
                 )))
             }
-            {/* <a className="gallery__menuItem--hidden" id="optionMostRecents" href="#">les plus récentes</a>
-            <a id="optionMostReviewed" href="#">les plus commentées</a>
-            <a id="optionMostLiked" href="#">les plus aimées</a>
-            <a id="optionMostClicked" href="#">les plus vues</a> */}
           </div>
-          {/* <select name="selectSort" className="gallery__menu--dropdown">
-            <option value="dates">les plus récentes</option>
-            <option value="comments">les plus commentées</option>
-            <option value="likes">les plus aimées</option>
-            <option value="cliks">les plus vues</option>
-          </select> */}
         </div>
       </div>
       <div className="gallery__content">
@@ -98,22 +78,6 @@ function Gallery() {
                 nombreLike={picture.nombre_like}
                 nombreReview={picture.nombre_review}
               />
-              {/* <img className="gallery__img" src={picture.src.medium} alt="" /> */}
-              {/* <img className="gallery__img" src={picture[0].url} alt="" />
-              <div className="gallery__imgDatas">
-                <div className="gallery__author">
-                  { picture.user_avatar ==='' ? <User /> : <img src={picture.user_avatar} alt="" className="gallery__avatarPicture" />}
-                  <p>{picture.user_pseudo}</p>
-                </div>
-                <div className="gallery__imgLikesAndComments">
-                  <div className="gallery__imgLikes" onClick={handleToggleLike}>
-                    {picture.nombre_like} &nbsp; <Heart className="heartFilled"/>
-                  </div>
-                  <div className="gallery__imgComments">
-                    {picture.nombre_review} &nbsp; <MessageSquare />
-                  </div>
-                </div>
-              </div> */}
             </Link>
           ))
         }
@@ -121,9 +85,5 @@ function Gallery() {
     </div>
   );
 }
-
-// Home.propTypes = {
-
-// };
 
 export default Gallery;

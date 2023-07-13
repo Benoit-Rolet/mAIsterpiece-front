@@ -94,7 +94,7 @@ function ZoomPicture() {
         }
       </div>
       <MoreReviewsButton />
-      {logged && <AddReviews pictureId={picture.id} />}
+      {logged && (picture !== null) && <AddReviews pictureId={picture.id} />}
     </div>
   );
 }
