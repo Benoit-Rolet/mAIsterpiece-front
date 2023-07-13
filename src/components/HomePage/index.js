@@ -1,5 +1,3 @@
-// import PropTypes from 'prop-types';
-
 // components
 import Gallery from '../Gallery';
 import GalleryHeader from '../GalleryHeader';
@@ -16,9 +14,5 @@ function HomePage() {
     </div>
   );
 }
-
-// HomePage.propTypes = {
-
-// };
 
 export default HomePage;

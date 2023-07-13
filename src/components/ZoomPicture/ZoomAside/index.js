@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import './style.scss';
@@ -30,9 +30,9 @@ function ZoomAside({ picture }) {
   const dispatch = useDispatch();
 
   // const [like, setLike] = useState(isLiked);
-  console.log('picture.isLiked = ', picture.isLiked);
+  // console.log('picture.isLiked = ', picture.isLiked);
   const [like, setLike] = useState(picture.isLiked);
-  console.log('like = ', like);
+  // console.log('like = ', like);
   const [nbLikes, setNbLikes] = useState(picture.nombre_like);
   // check in the state if the user is logged
   const isLogged = useSelector((state) => state.user.logged);
@@ -42,14 +42,11 @@ function ZoomAside({ picture }) {
     setLike(!like);
     if (!like) {
       setNbLikes(nbLikes + 1);
-      // console.log('nombre de like + = ', nbLikes);
     }
     else {
       setNbLikes(nbLikes - 1);
-      // console.log('nombre de like - = ', nbLikes);
     }
     // toggle like via API
-    // console.log(id);
     dispatch(actionToggleLikeAPI(picture.id));
   };
 
@@ -99,12 +96,8 @@ function ZoomAside({ picture }) {
   );
 }
 
-ZoomAside.propTypes = {
+// ZoomAside.propTypes = {
 
-};
-
-ZoomAside.defaultProps = {
-
-};
+// };
 
 export default ZoomAside;
